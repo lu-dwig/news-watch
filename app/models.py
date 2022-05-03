@@ -14,6 +14,7 @@ class Articles:
         self.urlToImage= urlToImage
         self.publishedAt = publishedAt
 
+
 class Sources:
     '''
     Sources class that defines each source object
@@ -26,3 +27,4 @@ class Sources:
         self.category = category
         self.language = language
         self.country = country
+
