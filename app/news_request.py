@@ -121,3 +121,4 @@ def search_articles(article_name):
             all_search_results = search_response['articles']
             search_outcome = process_search(all_search_results)
     return search_outcome 
+
