@@ -1,3 +1,4 @@
+
 class Articles:
     """ 
     Articles class to define Article Objects

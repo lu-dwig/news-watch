@@ -1,5 +1,6 @@
 import urllib.request,json
-from .models import Articles,Sources
+from .models import Sources
+from .models import Articles
 import os
 import requests
 
@@ -32,3 +33,34 @@ def get_sources(category):
             sources_outcome = process_new_sources(sources_outcome_items)
     return sources_outcome
 
+def process_new_sources(sources_list):
+    sources_outcome = []
+
+    for one_source in sources_list:
+        id = one_source.get("id")
+        name = one_source.get("name")
+        description = one_source.get("description")
+        url = one_source.get("url")
+        category = one_source.get("category")
+        language = one_source.get("language")
+        country = one_source.get("country")
+        
+        new_source = Sources(id,name,description,url,category,language,country)
+        sources_outcome.append(new_source)
+    
+    return sources_outcome
+
+def get_articles(article):
+
+    articles_url = art_url.format(article,api_key)
+    # print(art_url)
+    with urllib.request.urlopen(articles_url) as url:
+        articles_data = url.read()
+        articles_response = json.loads(articles_data)
+
+        articles_outcome = None
+
+        if articles_response['articles']:
+            articles_outcome_items = articles_response['articles']
+            articles_outcome = process_new_articles(articles_outcome_items)
+    return articles_outcome
