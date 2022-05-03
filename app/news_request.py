@@ -1,17 +1,16 @@
 import urllib.request,json
 from .models import Sources
 from .models import Articles
-import os
-import requests
 
 api_key = None
 s_url = None
 art_url = None
+article_url = None
+
 
 def configure_request(app):
     global api_key,s_url,art_url
     api_key = app.config['API_KEY']
-    articles_url = app.config['SOURCE_ARTICLES_URL']
     s_url = app.config['NEWS_API_BASE_URL']
     art_url = app.config['NEWS_ARTICLES_APL_URL']
     
@@ -108,7 +107,7 @@ def process_articles_source(article_list):
         source_articles.append(article_object)
     return source_articles
 
-def search_articles(article_name):
+# def search_articles(article_name):
     search_url = art_url.format(article_name,api_key)
 
     with urllib.request.urlopen(search_url) as url:
