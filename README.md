@@ -5,7 +5,7 @@
 [Ludwig-Murimi](https://github.com/lu-dwig)
 
 # Description
-This is an application that will help people who want to get realtime news withouth having to watch TV for the news. The website will show news articles from several sources and news sources that a user can click to see morw news. The  application consumes news from the [News API](https://newsapi.org/)
+This is an application that will help people who want to get realtime news withouth having to watch TV for the news. The website will show news articles from several sources and news sources that a user can click to see more news. The  application consumes news from the [News API](https://newsapi.org/)
 
 ## Live Link
 
@@ -29,7 +29,7 @@ To get the code..
   ```
 2. Move to the folder and install requirements
   ```bash
-  cd News_Bulletins
+  cd news-watch
   pip install -r requirements.txt
   ```
 3. Exporting Configurations
@@ -49,7 +49,7 @@ Open the application on your browser `127.0.0.1:5000`.
 
 ## Technology used
 
-* [Python3.6](https://www.python.org/)
+* [Python3.9](https://www.python.org/)
 * [Flask](http://flask.pocoo.org/)
 * [Heroku](https://heroku.com)
 
