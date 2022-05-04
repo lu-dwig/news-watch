@@ -1,3 +1,4 @@
+from distutils.debug import DEBUG
 import os
 from dotenv import load_dotenv
 
@@ -9,9 +10,15 @@ class Config:
     NEWS_ARTICLES_APL_URL='https://newsapi.org/v2/everything?q={}&apiKey={}'
     SOURCE_ARTICLES_URL='https://newsapi.org/v2/everything?sources={}&apiKey='
 
+
+class ProdConfig(Config):
+    DEBUG=  False
 class DevConfig(Config):
     DEBUG = True
+    
 
 config_options = {
+'production': ProdConfig,
 'development':DevConfig
+
 }
