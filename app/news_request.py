@@ -81,7 +81,7 @@ def process_new_articles(articles_list):
     return articles_outcome
 
 def articles_source(source):
-    sources_a_url = 'https://newsapi.org/v2/everything?sources={fd6e2edf7a4a49c19b15314d637288f1}&apiKey={fd6e2edf7a4a49c19b15314d637288f1}'.format(source,api_key)
+    sources_a_url = 'https://newsapi.org/v2/top-headlines/sources?apiKey=API_KEY'.format(source,api_key)
 
     with urllib.request.urlopen(sources_a_url) as url:
         art_data = url.read()
