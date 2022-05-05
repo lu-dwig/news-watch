@@ -1,6 +1,5 @@
 from flask import render_template,redirect,request,url_for
 from . import main
-# from app import app
 from ..news_request import get_sources,get_articles,search_articles,articles_source
 
 @main.route('/')
@@ -11,7 +10,11 @@ def HomePage():
     general_news = get_sources('general')
     business_news = get_sources("business")
     sports_news = get_sources("sports")
-    return render_template('sources.html',general=general_news,business=business_news,sports=sports_news )
+    search_articles =request.args.get('search_articles')
+    if search_articles:
+        return redirect(url_for('.search',article_name = search_articles))
+    else:
+        return render_template('sources.html',general=general_news,business=business_news,sports=sports_news )
 
 
 @main.route('/articles/<id>')

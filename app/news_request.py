@@ -1,6 +1,7 @@
 import urllib.request,json
 from .models import Sources
 from .models import Articles
+from .models import news
 
 api_key = None
 s_url = None
@@ -107,7 +108,7 @@ def process_articles_source(article_list):
         source_articles.append(article_object)
     return source_articles
 
-# def search_articles(article_name):
+def search_articles(article_name):
     search_url = art_url.format(article_name,api_key)
 
     with urllib.request.urlopen(search_url) as url:
@@ -121,3 +122,20 @@ def process_articles_source(article_list):
             search_outcome = process_search(all_search_results)
     return search_outcome 
 
+def process_search(all_search_results):
+    """
+    this function converts the data feed out the class results 
+    """
+    search_articles = []
+    for art in all_search_results:
+        source = art.get("source")
+        author = art.get('author')
+        title = art.get('title')
+        description = art.get('description')
+        url = art.get('url')
+        urlToImage = art.get('urlToImage')
+        publishedAt = art.get('publishedAt')
+        
+        search_outcome= news(source,author,title,description,url,urlToImage,publishedAt)
+        search_articles.append(search_outcome)
+    return search_articles

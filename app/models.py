@@ -28,3 +28,19 @@ class Sources:
         self.language = language
         self.country = country
 
+class news:
+    """
+    This class helps to design Everything object
+
+    """
+    
+    def __init__(self,author, title, description, url, urlToImage, publishedAt):
+        """
+        This method allows us to instantiate an instance.
+        """
+        self.author = author
+        self.title = title
+        self.description = description
+        self.url = url
+        self.urlToImage = urlToImage
+        self.publishedAt = publishedAt
