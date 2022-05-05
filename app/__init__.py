@@ -1,12 +1,13 @@
-# from ensurepip import bootstrap
 from flask import Flask
 from flask_bootstrap import Bootstrap
 from config import config_options
 
+bootstrap = Bootstrap()
+
 def create_app(config_name):
-    #app = Flask(__name__,instance_relative_config = True,static_url_path='/static')
-    app  = Flask (__name__)
-    bootstrap = Bootstrap(app)
+    
+    app = Flask(__name__)
+    
     app.config.from_object(config_options[config_name])
 
     # main blueprint configuration 
